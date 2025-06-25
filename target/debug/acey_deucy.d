@@ -1,0 +1,1 @@
+/home/noan/workspace/rust/rust_book/acey_deucy/target/debug/acey_deucy: /home/noan/workspace/rust/rust_book/acey_deucy/src/game/card.rs /home/noan/workspace/rust/rust_book/acey_deucy/src/game/deck.rs /home/noan/workspace/rust/rust_book/acey_deucy/src/game.rs /home/noan/workspace/rust/rust_book/acey_deucy/src/main.rs /home/noan/workspace/rust/rust_book/acey_deucy/src/user.rs
