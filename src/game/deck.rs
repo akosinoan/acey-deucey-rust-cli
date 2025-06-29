@@ -29,6 +29,10 @@ impl Deck{
         
     }
 
+    pub fn add_to_pile(&mut self, card: Card){
+        self.cards.push(card);
+    }
+
     pub fn cards_remaining(&self) -> u32 {
         
         match u32::try_from(self.cards.len()){
@@ -36,6 +40,10 @@ impl Deck{
                         Err(_) => 0
                     }
         }
+
+    pub fn new() ->Self{
+        Self { cards:Vec::new() }
+    }
 
     pub fn init_deck() -> Self{
         let mut cards:Vec<Card> = Vec::new();
@@ -58,5 +66,20 @@ impl Deck{
         Self{
             cards,
         }
+    }
+
+    pub fn show_deck(&mut self){
+        println!("**** this deck has [ ");
+        
+        for (i,card) in self.cards.iter().enumerate(){
+            print!("{} ",format!("{}",card));
+            
+            if i+1 < self.cards.len(){
+                println!(", ");
+            }else {
+                println!(" ");
+            }
+        }
+        println!(" ]")
     }
 }

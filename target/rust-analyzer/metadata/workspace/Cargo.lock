@@ -3,7 +3,7 @@
 version = 4
 
 [[package]]
-name = "acey_deucy"
+name = "acey_deucey"
 version = "0.1.0"
 dependencies = [
  "rand",

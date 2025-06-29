@@ -1,22 +1,14 @@
-use std::io;
-mod user;
 mod game;
+mod utils;
 use game::Game as Game;
-use user::User as User;
+
+use crate::utils as Utils;
 fn main() {
-    let mut players:Vec<User> = Vec::new();
 
     loop{
         println!("Main Menu: \n1. Start new game.\n2. Exit");
-        let mut option =  String::new();
-        io::stdin()
-            .read_line(&mut option)
-            .expect("Failed to read line");
-        let option: u32 = match option.trim().parse() {
-            Ok(num) => num,
-            Err(_) => continue,
-        };
         
+        let option: u32 = Utils::get_user_input();
        
        match option {
         
@@ -28,7 +20,7 @@ fn main() {
 
         2=>break,
 
-        _ => (),
+        _ => {println!("Invalid input. Try again. "); continue;},
        }
        
  

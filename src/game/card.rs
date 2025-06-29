@@ -1,6 +1,6 @@
 
-use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
+use std::fmt;
 #[derive(Debug)]
 pub struct Card{
     number_value:u32,
@@ -13,11 +13,44 @@ impl Card {
     pub fn new (number_value:u32,face_value:FaceValue,suite:Suite) -> Self {
         Self { number_value, face_value, suite }
     }
+
+}
+
+impl fmt::Display for Card{
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+         
+        let face = match self.face_value {
+            FaceValue::One =>   "One",
+            FaceValue::Two =>   "Two",
+            FaceValue::Three =>  "Three",
+            FaceValue::Four =>   "Four",
+            FaceValue::Five =>   "Five",
+            FaceValue::Six =>   "Six",
+            FaceValue::Seven =>   "Seven",
+            FaceValue::Eight =>   "Eight",
+            FaceValue::Nine =>   "Nine",
+            FaceValue::Ten =>   "Ten",
+            FaceValue::Jack =>   "Jack",
+            FaceValue::Queen =>   "Queen",
+            FaceValue::King =>   "King",
+         };
+
+        let suite =   match self.suite {
+            Suite::Hearts =>   "♥ (Hearts)",
+            Suite::Diamonds =>   "♦ (Diamonds)",
+            Suite::Spades =>   "♠ (Spades)",
+            Suite::Clubs =>   "♣ (Clubs)",
+        };
+
+
+        write!(f, "{} of {}", face, suite)
+
+    }
 }
 
 #[derive(EnumIter, Debug, PartialEq ,Clone, Copy)]
 pub enum Suite{
-    Cloves,
+    Clubs,
     Spades,
     Hearts,
     Diamonds,
