@@ -1,4 +1,4 @@
-use crate::game::card::{Card, FaceValue, Suite};
+use super::card::{Card, FaceValue, Suite};
 use strum::IntoEnumIterator;
 use rand::prelude::*;
 pub struct Deck{
@@ -18,10 +18,11 @@ impl Deck{
             self.cards.swap(i, swap_to);
             
         }
-        
-        for card in &self.cards{
-            println!("{:?}",card);
-        }
+
+        // display cards in deck 
+        // for card in &self.cards{
+        //     println!("{:?}",card);
+        // }
     }
   
     pub fn draw_card(&mut self)->  Option<Card>{
@@ -33,7 +34,7 @@ impl Deck{
         self.cards.push(card);
     }
 
-    pub fn cards_remaining(&self) -> u32 {
+    pub fn _cards_remaining(&self) -> u32 {
         
         match u32::try_from(self.cards.len()){
                         Ok(i)=>i+1,
@@ -59,16 +60,17 @@ impl Deck{
                     suite) );
             }
         }
-        for card in &cards{
-            println!("{:?}",card);
-        }    
+        // display cards in deck
+        // for card in &cards{
+        //     println!("{:?}",card);
+        // }    
         
         Self{
             cards,
         }
     }
 
-    pub fn show_deck(&mut self){
+    pub fn _show_deck(&mut self){
         println!("**** this deck has [ ");
         
         for (i,card) in self.cards.iter().enumerate(){

@@ -1,5 +1,6 @@
 
-use crate::game::{card::{Card, FaceValue, Suite}, player};
+
+use super::Card;
 pub struct Player {
     name: String,
     money:f64,
@@ -24,9 +25,15 @@ impl Player {
         self.money
     }
 
+    pub fn add_money(&mut self, amount:f64){
+        println!("Adding {} to {}'s money",amount,self.name );
+        self.money += amount;
+
+    }
+
     pub fn subtract_money (&mut self,amount:f64)-> bool {
 
-        if(self.money >= amount){
+        if self.money >= amount{
             self.money-=amount;
             true
         }else{
@@ -34,6 +41,10 @@ impl Player {
             false
         }
 
+    }
+
+    pub fn peek_card(&self, index: usize )-> &Card {
+        &self.cards_on_hand[index]
     }
 
     pub fn take_card(&mut self,card:Card){
@@ -63,7 +74,7 @@ impl Player {
 
     pub fn pay_ante(&mut self,amount:f64){
 
-        if(self.subtract_money(amount)){
+        if self.subtract_money(amount){
             println!("{} paid {} for ante.",self.name , amount);
             self.is_ante_paid = true;
 

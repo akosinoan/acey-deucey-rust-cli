@@ -1,4 +1,4 @@
-use std::{io, str::FromStr};
+use std::{io::{self, Read}, str::FromStr};
 
 
 pub fn get_user_input<T: FromStr>() -> T
@@ -16,4 +16,9 @@ pub fn get_user_input<T: FromStr>() -> T
                 Err(_) => {println!("Invalid input. Try again.");continue;},
             }
         }
+}
+
+pub fn pause(){
+    //println!("............");
+    let _ = io::stdin().read (&mut [0u8]).unwrap();
 }

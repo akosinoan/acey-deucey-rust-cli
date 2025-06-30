@@ -14,6 +14,10 @@ impl Card {
         Self { number_value, face_value, suite }
     }
 
+    pub fn number_value (&self)-> u32{
+        self.number_value
+    }
+
 }
 
 impl fmt::Display for Card{
